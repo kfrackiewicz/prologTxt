@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="js/prolog-canvas.js"></script>
+        <script type="text/javascript" src="js/prolog-canvas.normal.js"></script>
+        <script type="text/javascript" src="js/prolog-canvas.strobe.js"></script>
+        <script type="text/javascript" src="js/prolog-canvas.letters.js"></script>
+        <script type="text/javascript" src="js/prolog-canvas.mirror.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:700' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-image: url(images/nightlife-q-c-1920-1080-5.jpg);
+                background-repeat: no-repeat;
+            }
+            canvas {
+                overflow: hidden;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <span style="font-family: Source Sans Pro">test</span>
+    </body>
+    <script type="text/javascript">
+        var scenes = [];
+
+        scenes.push({
+            effect: 'normal',
+            text: {
+                value:'NORMAL',
+                color: 'red',
+                font: 'Source Sans Pro',
+                size: 120
+            },
+            time: 1000,
+            delay: 0,
+            alpha: 0.6,
+            callback: function () {
+                console.log('end callback');
+            }
+        });
+
+        scenes.push({
+            effect: 'strobe',
+            text: {
+                value:'STROBE',
+                color: '#e6ba71',
+                font: 'Source Sans Pro',
+                size: 120
+            },
+            time: 1500,
+            alpha: 0.6,
+            delay: 500
+        });
+
+        scenes.push({
+            text: {
+                value: 'MIRROR',
+                font: 'Source Sans Pro',
+                size: 120,
+                color: 'green'
+            },
+            time: 1200,
+            effect: 'mirror',
+            alpha: 0.6
+        });
+
+        scenes.push({
+            text: {
+                value: 'REVERSE MIRROR',
+                font: 'Source Sans Pro',
+                size: 120
+            },
+            background: {
+                color: 'black'
+            },
+            time: 1200,
+            effect: 'mirror',
+            alpha: 0.8
+        });
+
+        scenes.push({
+            effect: 'letters',
+            direction: 'center',
+            text: {
+                value:'LETTERS CENTER',
+                color: '#e6ba71',
+                font: 'Source Sans Pro',
+                size: 120
+            },
+            time: 800,
+            alpha: 0.8,
+            delay: 1000
+        });
+
+        scenes.push({
+            effect: 'letters',
+            direction: 'right',
+            text: {
+                value:'LETTERS RIGHT',
+                color: '#e6ba71',
+                font: 'Source Sans Pro',
+                size: 120
+            },
+            time: 800,
+            alpha: 0.8,
+            delay: 1000
+        });
+
+        scenes.push({
+            effect: 'letters',
+            direction: 'left',
+            text: {
+                value:'LETTERS LEFT',
+                color: '#e6ba71',
+                font: 'Source Sans Pro',
+                size: 120
+            },
+            time: 800,
+            alpha: 0.8,
+            delay: 1000
+        });
+
+        window.onload = function () {
+            new Prolog(scenes);
+        };
+    </script>
+</html>
